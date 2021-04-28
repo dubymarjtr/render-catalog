@@ -56,7 +56,6 @@ document
   .querySelector('input[type="range"]')
   .addEventListener('input', event => {
     maxNum = event.target.value;
-    console.log(maxNum);
     const filteredCatalog = filterProductsByMaxPrice(catalog, Number(maxNum));
     renderCatalog(filteredCatalog);
   });
