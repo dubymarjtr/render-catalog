@@ -1,5 +1,40 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 10px;
+  background-color: rgba(181, 131, 141, 0.5);
+  color: #3b383b;
+  font-family: 'Dosis', sans-serif;
+  font-size: 15px;
+}
+
+h1 {
+  font-family: 'Original Surfer', cursive;
+  text-align: center;
+}
+
+label {
+  font-size: 0.8rem;
+}
+
+ul {
+  font-size: 1.4em;
+  list-style-type: square;
+}
+
+.wrapper {
+  border-radius: 35px;
+
+  /* From css-tricks.com */
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+  height: 400px;
+  padding: 50px;
+}
+
+/* From css-tricks.com */
+.centered {
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
