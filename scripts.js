@@ -1,4 +1,3 @@
-document.body.appendChild(document.createElement('ul'));
 const ul = document.querySelector('ul');
 let maxNum = null;
 
