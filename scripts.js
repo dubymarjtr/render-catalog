@@ -55,6 +55,10 @@ function filterByStock(products) {
   return products.filter(product => product.stocked === true);
 }
 
+function filterBySearch(products, search) {
+  return products.filter(product => product.name.includes(search) === true);
+}
+
 renderCatalog(catalog);
 
 /* business logic */
@@ -68,7 +72,7 @@ document
 
 document
   .querySelector('input[type="checkbox"]')
-  .addEventListener('change', event => {
+  .addEventListener('change', () => {
     if (checked) {
       const stockedCatalog = filterByStock(catalog);
       renderCatalog(stockedCatalog);
@@ -76,3 +80,8 @@ document
       renderCatalog(catalog);
     }
   });
+
+document.querySelector('#search').addEventListener('input', event => {
+  const search = event.target.value;
+  renderCatalog(filterBySearch(catalog, search));
+});
