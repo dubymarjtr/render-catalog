@@ -1,5 +1,6 @@
 const ul = document.querySelector('ul');
 let maxNum = null;
+const checked = document.querySelector('#stock');
 
 const catalog = [
   {
@@ -35,7 +36,7 @@ const catalog = [
     name: 'iPhone 5',
   },
 ];
-
+/* function declaration */
 function renderCatalog(catalogArray) {
   ul.innerHTML = catalogArray
     .map(
@@ -45,16 +46,33 @@ ${item.name} - ${item.price}
     )
     .join('');
 }
-renderCatalog(catalog);
 
 function filterProductsByMaxPrice(products, maxPrice) {
   return products.filter(product => product.price.slice(1) <= maxPrice);
 }
 
+function filterByStock(products) {
+  return products.filter(product => product.stocked === true);
+}
+
+renderCatalog(catalog);
+
+/* business logic */
 document
   .querySelector('input[type="range"]')
   .addEventListener('input', event => {
     maxNum = event.target.value;
     const filteredCatalog = filterProductsByMaxPrice(catalog, Number(maxNum));
     renderCatalog(filteredCatalog);
+  });
+
+document
+  .querySelector('input[type="checkbox"]')
+  .addEventListener('change', event => {
+    if (checked) {
+      const stockedCatalog = filterByStock(catalog);
+      renderCatalog(stockedCatalog);
+    } else {
+      renderCatalog(catalog);
+    }
   });
